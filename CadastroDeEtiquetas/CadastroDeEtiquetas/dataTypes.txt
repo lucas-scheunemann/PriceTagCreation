@@ -1,0 +1,28 @@
+data types
+Etiqueta
+public int Id { get; set; }
+        public virtual Formulario Formulario { get; set; }
+        [Display(Name ="Numero de Formulario")]
+        public int FormularioId  { get; set; }
+        public int Linguagem { get; set; }
+        public int Tipo { get; set; }
+        public string Descricao { get; set; }
+        [Display(Name="Largura de Impressao")]
+        public int LarguraImpressao { get; set; }
+        public int Densidade { get; set; }
+        public int Velocidade { get; set; }
+        public string Imagem { get; set; }			=> pode ser alterado
+        [Display(Name = "numero de Etiqueta")]
+        public int NumEtiqueta { get; set; } 			=> EstruturaEtiqueta text (string)
+Formulario
+        public int FormularioId { get; set; }
+        public string Descricao { get; set; }
+        public int Colunas { get; set; }
+        public double Altura { get; set; }
+        public double Largura { get; set; }
+        public int Fixacao { get; set; }
+        public double GapLinha { get; set; }			
+        public double GapColuna { get; set; }
+        public int Rfid { get; set; }
+        public string Imagem { get; set; }
+        public List<Etiqueta> Etiquetas { get; set; }

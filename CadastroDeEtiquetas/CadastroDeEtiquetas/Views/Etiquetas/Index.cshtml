@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CadastroDeEtiquetas.Models.Etiqueta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Formulario)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Linguagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.LarguraImpressao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Densidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Velocidade)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Imagem)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.EstruturaEtiqueta)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formulario.FormularioId)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Linguagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.LarguraImpressao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Densidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Velocidade)
+            </td>*@
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Imagem)*@
+                <img src="@Url.Content(String.Format("~/images/{0}", item.Imagem+".jpg"))" style="width:100px;height:100px;"/>
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.EstruturaEtiqueta)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
